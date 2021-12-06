@@ -98,7 +98,7 @@ always @(posedge clk) begin
 					state <= s_write_0;
 					// Check to ensure that the output buffer has enough space
 					// for a burst
-				end else if (calib_done==1 && read_mode==1 && (ob_count<(FIFO_SIZE-2-BURST_UI_WORD_COUNT) ) ) begin
+				end else if (calib_done==1 && read_mode==1 && (ob_count<(FIFO_SIZE-2-BURST_UI_WORD_COUNT) )&&cmd_byte_addr_wr>cmd_byte_addr_rd ) begin
 					app_addr <= cmd_byte_addr_rd;
 					state <= s_read_0;
 				end
