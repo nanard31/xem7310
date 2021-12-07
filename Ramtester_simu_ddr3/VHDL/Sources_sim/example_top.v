@@ -510,7 +510,7 @@ module example_top #
    // System reset polarity will change based on the option 
 
    // selected in GUI.
-
+	input										okClk,
    input                                        sys_rst
 
    );
@@ -897,7 +897,7 @@ function integer clogb2 (input integer size);
 //       `endif
 
       
-
+		.okClk							(okClk),
        .sys_rst                        (sys_rst)
 
        );

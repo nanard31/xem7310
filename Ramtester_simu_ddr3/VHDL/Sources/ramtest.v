@@ -50,6 +50,8 @@ module ramtest (
 	
 	output	wire 		init_calib_complete,	//: inout   STD_LOGIC;
 	
+	input  wire			okClk,
+	
 	input	wire        sys_rst              // for simulation
 	
 //	output wire [0 :7]  o_ADC_Conv_n,
@@ -92,7 +94,7 @@ wire          rst;
 // Front Panel
 
 // Target interface bus:
-wire         okClk;
+//wire         okClk; comment for simulation
 wire [112:0] okHE;
 wire [64:0]  okEH;
 
@@ -205,7 +207,7 @@ ddr3_256_32 u_ddr3_256_32 (
 // OK MIG DDR3 Testbench Instatiation
 ddr3_test ddr3_tb (
 	.clk                (clk),
-	.reset              (ep00wire[2] | rst),
+	.reset              (ep00wire[2] | rst),	// comment for simulation
 	.reads_en           (1'b1),//(ep00wire[0]),		//	comment for simulation
 	.writes_en          (1'b1),//(ep00wire[1]),		//	comment for simulation
 	.calib_done         (init_calib_complete),
@@ -267,7 +269,7 @@ okHost okHI(
 	.okHU(okHU),
 	.okUHU(okUHU),
 	.okAA(okAA),
-	.okClk(okClk),
+	.okClk(open),	//open for simulation
 	.okHE(okHE),
 	.okEH(okEH)
 	);
@@ -284,7 +286,7 @@ okTriggerOut   trig60( .okHE(okHE), .okEH(okEHx[ 4*65 +: 65 ]),                 
 
 
 Test_Template Test_Template_instance (
-    .rst(ep00wire[2]),
+    .rst(sys_rst),	// comment for simulation//(ep00wire[2]),
     .clk(clk),
     .i_start(ep40trigger[0]),
     .o_finished(ep60trigger[0]),
@@ -304,7 +306,7 @@ Test_Template Test_Template_instance (
 
 
 fifo_w32_1024_r256_128 okPipeIn_fifo (                  // write 128 bits wide
-	.rst(ep00wire[2]),
+	.rst(sys_rst),	// comment for simulation//(ep00wire[2]),
 	.wr_clk(clk),
 	.rd_clk(clk),
 	.din(o_dout), // Bus [127 : 0]
@@ -319,7 +321,7 @@ fifo_w32_1024_r256_128 okPipeIn_fifo (                  // write 128 bits wide
 
 	
 fifo_w256_128_r32_1024 okPipeOut_fifo (
-	.rst(ep00wire[2]),
+	.rst(sys_rst),	// comment for simulation//(ep00wire[2]),
 	.wr_clk(clk),
 	.rd_clk(okClk),
 	.din(pipe_out_data), // Bus [256 : 0]
