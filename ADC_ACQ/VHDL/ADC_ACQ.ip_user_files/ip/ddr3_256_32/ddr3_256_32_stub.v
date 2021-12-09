@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Wed Oct 13 15:35:09 2021
-// Host        : DESKTOP-BNTCRVM running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top ddr3_256_32 -prefix
-//               ddr3_256_32_ ddr3_256_32_stub.v
+// Date        : Thu Dec  9 15:20:24 2021
+// Host        : DESKTOP-BSP8Q2B running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode synth_stub
+//               c:/GIT/xem7310/ADC_ACQ/VHDL/ADC_ACQ.gen/sources_1/ip/ddr3_256_32/ddr3_256_32_stub.v
 // Design      : ddr3_256_32
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a75tfgg484-1
