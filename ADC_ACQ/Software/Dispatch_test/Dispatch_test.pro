@@ -11,4 +11,4 @@ HEADERS += \
     okFrontPanel.h \
     okFrontPanelDLL.h
 
-LIBS += okFrontPanel.lib
+LIBS += $$PWD\okFrontPanel.lib
