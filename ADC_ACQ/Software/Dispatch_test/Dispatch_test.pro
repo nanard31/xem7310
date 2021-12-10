@@ -12,3 +12,5 @@ HEADERS += \
     okFrontPanelDLL.h
 
 LIBS += $$PWD\okFrontPanel.lib
+
+DESTDIR =$$PWD\..\bin
